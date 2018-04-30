@@ -8,9 +8,9 @@ import javax.persistence.Id;
 public class Adresse {
 	
 	@Id
-	private int id;
+	private int idAdresse;
 	
-	@Column(name="NUMERO", length=4, nullable=false)
+	@Column(name="NUMERO_ADRESSE", length=4, nullable=false)
 	private int numero;
 	
 	@Column(name="RUE", length=50, nullable=false)

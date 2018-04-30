@@ -13,12 +13,12 @@ import javax.persistence.Table;
 public class Client {
 	
 	@Id
-	private int id;
+	private int idClient;
 	
-	@Column(name="NOM", length=50, nullable=false)
+	@Column(name="NOM_CLIENT", length=50, nullable=false)
 	private String nom;
 	
-	@Column(name="PRENOM", length=50, nullable=false)
+	@Column(name="PRENOM_CLIENT", length=50, nullable=false)
 	private String prenom;
 	
 	@Column(name="DATE_NAISSANCE", nullable=false)
