@@ -14,6 +14,9 @@ public class Livre {
 	@Column(name="TITRE", length = 255, nullable = false)
 	private String titre;
 	
+	@Column(name="AUTEUR", length = 50, nullable = false)
+	private String auteur;
+	
 	public Livre()
 	{
 		
@@ -25,5 +28,9 @@ public class Livre {
 
 	public String getTitre() {
 		return titre;
+	}
+
+	public String getAuteur() {
+		return auteur;
 	}
 }

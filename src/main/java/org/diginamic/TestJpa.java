@@ -21,6 +21,7 @@ public class TestJpa {
 		
 		LOG.debug("ID : " + l.getId());
 		LOG.debug("Titre : " + l.getTitre());
+		LOG.debug("Auteur : " + l.getAuteur());
 	}
 
 }
