@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +26,9 @@ public class Emprunt {
 	
 	@Column(name="ID_CLIENT", length = 10, nullable=false)
 	private int idClient;
+	
+	@ManyToOne
+	private Client client;
 	
 	public Emprunt()
 	{

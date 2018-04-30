@@ -17,6 +17,9 @@ public class Livre {
 	@Column(name="AUTEUR", length = 50, nullable = false)
 	private String auteur;
 	
+	@ManyToOne
+	private Compo compo;
+	
 	public Livre()
 	{
 		
