@@ -14,4 +14,9 @@ public class Banque {
 	
 	@Column(name="NOM_BANQUE", length=50, nullable=false)
 	private String nomBanque;
+	
+	public Banque()
+	{
+		
+	}
 }
