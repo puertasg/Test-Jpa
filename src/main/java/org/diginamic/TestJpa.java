@@ -31,6 +31,9 @@ public class TestJpa {
 		LOG.debug("ID : " + livreSelect.getId());
 		LOG.debug("Titre : " + livreSelect.getTitre());
 		LOG.debug("Auteur : " + livreSelect.getAuteur());
+		
+		entityMan.close();
+		entityManFactory.close();
 	}
 
 }
