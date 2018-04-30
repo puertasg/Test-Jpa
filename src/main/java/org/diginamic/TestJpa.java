@@ -20,6 +20,7 @@ public class TestJpa {
 		Livre l = entityMan.find(Livre.class, 1);
 		
 		LOG.debug("ID : " + l.getId());
+		LOG.debug("Titre : " + l.getTitre());
 	}
 
 }
