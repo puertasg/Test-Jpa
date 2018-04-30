@@ -11,9 +11,9 @@ import javax.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import Entities.Client;
-import Entities.Emprunt;
-import Entities.Livre;
+import entities.Client;
+import entities.Emprunt;
+import entities.Livre;
 
 public class TestJpa {
 	

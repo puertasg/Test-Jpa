@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 import java.util.Set;
 
@@ -46,5 +46,9 @@ public class Livre {
 
 	public String getAuteur() {
 		return auteur;
+	}
+
+	public Set<Emprunt> getEmprunts() {
+		return emprunts;
 	}
 }
