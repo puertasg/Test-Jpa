@@ -1,10 +1,14 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,11 +27,39 @@ public class Emprunt {
 	@Column(name="DELAI", length = 10, nullable=true)
 	private int delai;
 	
-	@Column(name="ID_CLIENT", length = 10, nullable=false)
-	private int idClient;
+	@ManyToOne
+	@JoinColumn(name="ID_CLIENT")
+	private Client client;
+	
+	@ManyToMany(mappedBy="emprunts")
+	private Set<Livre> livres;
 	
 	public Emprunt()
 	{
 		
+	}
+
+	public Set<Livre> getLivres() {
+		return livres;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public LocalDate getDateDebut() {
+		return dateDebut;
+	}
+
+	public LocalDate getDateFin() {
+		return dateFin;
+	}
+
+	public int getDelai() {
+		return delai;
+	}
+
+	public Client getClient() {
+		return client;
 	}
 }

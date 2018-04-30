@@ -5,6 +5,9 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,8 +24,12 @@ public class Livre {
 	@Column(name="AUTEUR", length = 50, nullable = false)
 	private String auteur;
 	
-	@OneToMany
-	private Set<Compo> compos;
+	@ManyToMany
+	@JoinTable(name="compo",
+	joinColumns= @JoinColumn(name="ID_EMP", referencedColumnName="ID"),
+	inverseJoinColumns= @JoinColumn(name="ID_LIV", referencedColumnName="ID")
+	)
+	private Set<Emprunt> emprunts;
 	
 	public Livre()
 	{
@@ -39,9 +46,5 @@ public class Livre {
 
 	public String getAuteur() {
 		return auteur;
-	}
-
-	public Set<Compo> getCompos() {
-		return compos;
 	}
 }
