@@ -17,4 +17,9 @@ public class Client {
 	
 	@Column(name="PRENOM", length = 50, nullable=false)
 	private String prenom;
+	
+	public Client()
+	{
+		
+	}
 }
