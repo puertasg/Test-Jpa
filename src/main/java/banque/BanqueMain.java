@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import banque.entities.Adresse;
+import banque.entities.AssuranceVie;
 import banque.entities.Banque;
 import banque.entities.Client;
 import banque.entities.LivretA;
@@ -34,11 +35,14 @@ public class BanqueMain {
 		Client client = new Client("test nom", "test prenom", LocalDate.now(), banque, adresse);
 		entityMan.persist(client);
 		
-		LivretA la = new LivretA("123456789abc", 1, client, 1);
-		entityMan.persist(la);
+		LivretA livretA = new LivretA("123456789abc", 1, client, 1);
+		entityMan.persist(livretA);
 		
-		Operation op = new Operation(LocalDate.now(), 126, "motif ici", la);
-		entityMan.persist(op);
+		AssuranceVie assuranceVie = new AssuranceVie("123456789abc", 2, client, 2, LocalDate.now());
+		entityMan.persist(assuranceVie);
+		
+		Operation operation = new Operation(LocalDate.now(), 126, "motif ici", livretA);
+		entityMan.persist(operation);
 		
 		entityTransac.commit();
 		

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="assurancevie")
 public class AssuranceVie extends Compte{
 	
-	@Column(name="DATE_FIN", length = 3)
+	@Column(name="DATE_FIN", nullable=false)
 	private LocalDate dateFin;
 	
 	@Column(name="TAUX", length = 3)
