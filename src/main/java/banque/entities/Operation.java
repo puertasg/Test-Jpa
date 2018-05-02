@@ -4,7 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +16,8 @@ import javax.persistence.Table;
 public class Operation {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_OPERATION", unique = true, nullable = false)
 	private int idOperation;
 	
 	@Column(name="DATE_OPERATION", nullable=false)
@@ -22,6 +28,10 @@ public class Operation {
 	
 	@Column(name="MOTIF", length=40, nullable=false)
 	private String motif;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_COMPTE")
+	private Compte compte;
 	
 	public Operation()
 	{

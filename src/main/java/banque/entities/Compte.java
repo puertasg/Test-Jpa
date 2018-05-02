@@ -4,15 +4,24 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import entities.Emprunt;
 
 @Entity
 @Table(name="compte")
 public class Compte {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_COMPTE", unique = true, nullable = false)
 	private int idCompte;
 	
 	@Column(name="NUMERO_COMPTE", length = 40, nullable=false)
@@ -21,8 +30,12 @@ public class Compte {
 	@Column(name="SOLDE_COMPTE", length = 40, nullable=false)
 	private double soldeCompte;
 	
-	@ManyToMany(mappedBy="clients")
-	private Set<Client> clients;
+	@ManyToOne
+	@JoinColumn(name="ID_CLIENT")
+	private Client client;
+	
+	@OneToMany(mappedBy="compte")
+	private Set<Operation> operations;
 	
 	public Compte()
 	{
