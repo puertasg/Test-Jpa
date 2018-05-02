@@ -1,11 +1,20 @@
 package banque;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +54,18 @@ public class BanqueMain {
 		entityMan.persist(operation);
 		
 		entityTransac.commit();
+		
+		CriteriaBuilder criteriaBuilder = entityMan.getCriteriaBuilder();
+		
+		CriteriaQuery<Client> criteriaQueryClient = criteriaBuilder.createQuery(Client.class);
+		Metamodel meta = entityMan.getMetamodel();
+		EntityType<Client> Client_ = meta.entity(Client.class);
+		
+		Root<Client> rootClient = criteriaQueryClient.from(Client.class);
+		Join<Client, Banque> laBanque = rootClient.join(Client_.getBanque());
+		criteriaQueryClient.select(rootClient);
+		TypedQuery<Client> queryClient = entityMan.createQuery(criteriaQueryClient);
+		List<Client> allClients = queryClient.getResultList();
 		
 		entityMan.close();
 		entityManFactory.close();
