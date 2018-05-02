@@ -26,11 +26,7 @@ public class BanqueMain {
 		
 		entityTransac.begin();
 		
-		Adresse adresse = new Adresse();
-		adresse.setCodePostal(12345);
-		adresse.setNumero(1);
-		adresse.setRue("Ma rue");
-		adresse.setVille("ma ville");
+		Adresse adresse = new Adresse("Ma rue", "Ma ville", 1, 12345);
 		
 		Banque banque = new Banque();
 		banque.setNomBanque("Ma banque");
