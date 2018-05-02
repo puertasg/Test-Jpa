@@ -29,13 +29,14 @@ public class Banque {
 	{
 		
 	}
+	
+	public Banque(String n)
+	{
+		this.nomBanque = n;
+	}
 
 	public String getNomBanque() {
 		return nomBanque;
-	}
-
-	public void setNomBanque(String nomBanque) {
-		this.nomBanque = nomBanque;
 	}
 
 	public int getIdBanque() {

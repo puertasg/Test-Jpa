@@ -28,8 +28,7 @@ public class BanqueMain {
 		
 		Adresse adresse = new Adresse("Ma rue", "Ma ville", 1, 12345);
 		
-		Banque banque = new Banque();
-		banque.setNomBanque("Ma banque");
+		Banque banque = new Banque("Ma banque");
 		entityMan.persist(banque);
 		
 		Client client = new Client("test nom", "test prenom", LocalDate.now(), banque, adresse);
