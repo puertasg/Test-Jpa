@@ -37,4 +37,12 @@ public class Operation {
 	{
 		
 	}
+	
+	public Operation(LocalDate dateOp, double m, String mot, Compte c)
+	{
+		this.dateOperation = dateOp;
+		this.montant = m;
+		this.motif = mot;
+		this.compte = c;
+	}
 }
