@@ -46,6 +46,15 @@ public class Client {
 	@OneToMany(mappedBy="client")
 	private Set<Compte> comptes;
 	
+	public Client(String n, String p, LocalDate dn, Banque b, Adresse a)
+	{
+		this.nom = n;
+		this.prenom = p;
+		this.dateNaissance = dn;
+		this.banque = b;
+		this.adresse = a;
+	}
+	
 	public Client()
 	{
 		

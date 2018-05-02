@@ -36,12 +36,7 @@ public class BanqueMain {
 		banque.setNomBanque("Ma banque");
 		entityMan.persist(banque);
 		
-		Client client = new Client();
-		client.setAdresse(adresse);
-		client.setBanque(banque);
-		client.setNom("test nom");
-		client.setPrenom("test prenom");
-		client.setDateNaissance(LocalDate.now());
+		Client client = new Client("test nom", "test prenom", LocalDate.now(), banque, adresse);
 		entityMan.persist(client);
 		
 		entityTransac.commit();
