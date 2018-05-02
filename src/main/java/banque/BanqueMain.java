@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import banque.entities.Adresse;
 import banque.entities.Banque;
 import banque.entities.Client;
-import banque.entities.Compte;
 import banque.entities.LivretA;
 import banque.entities.Operation;
 
@@ -34,9 +33,6 @@ public class BanqueMain {
 		Adresse adresse = new Adresse("Ma rue", "Ma ville", 1, 12345);
 		Client client = new Client("test nom", "test prenom", LocalDate.now(), banque, adresse);
 		entityMan.persist(client);
-		
-		/*Compte cpt = new Compte("123456789abc", 1, client);
-		entityMan.persist(cpt);*/
 		
 		LivretA la = new LivretA("123456789abc", 1, client, 1);
 		entityMan.persist(la);
