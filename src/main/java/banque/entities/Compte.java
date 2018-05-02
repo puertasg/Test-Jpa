@@ -38,4 +38,11 @@ public class Compte {
 	{
 		
 	}
+	
+	public Compte(String noCpt, double soldeCpt, Client c)
+	{
+		this.numeroCompte = noCpt;
+		this.soldeCompte = soldeCpt;
+		this.client = c;
+	}
 }
