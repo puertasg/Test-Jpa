@@ -14,6 +14,7 @@ import banque.entities.Adresse;
 import banque.entities.Banque;
 import banque.entities.Client;
 import banque.entities.Compte;
+import banque.entities.LivretA;
 import banque.entities.Operation;
 
 public class BanqueMain {
@@ -34,10 +35,13 @@ public class BanqueMain {
 		Client client = new Client("test nom", "test prenom", LocalDate.now(), banque, adresse);
 		entityMan.persist(client);
 		
-		Compte cpt = new Compte("123456789abc", 1, client);
-		entityMan.persist(cpt);
+		/*Compte cpt = new Compte("123456789abc", 1, client);
+		entityMan.persist(cpt);*/
 		
-		Operation op = new Operation(LocalDate.now(), 126, "motif ici", cpt);
+		LivretA la = new LivretA("123456789abc", 1, client, 1);
+		entityMan.persist(la);
+		
+		Operation op = new Operation(LocalDate.now(), 126, "motif ici", la);
 		entityMan.persist(op);
 		
 		entityTransac.commit();

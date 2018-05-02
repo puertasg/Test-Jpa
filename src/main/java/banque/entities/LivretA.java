@@ -2,8 +2,10 @@ package banque.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="livreta")
 public class LivretA extends Compte{
 	
 	@Column(name="TAUX", length = 3)

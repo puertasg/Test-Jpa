@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public abstract class Compte {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID_COMPTE", unique = true, nullable = false)
 	private int idCompte;
 	
